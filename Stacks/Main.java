@@ -1,23 +1,22 @@
 package Stacks;
-import java.util.Arrays;
 
 public class Main {
 
     public static void main(String [] args){
         Stack stack = new Stack();
 
-        int [] nums = {13, 21, 10, 11, 23};
-        System.out.println("--- Before popping ---");
-        System.out.print(Arrays.toString(nums) + " " + "\n");
-
-        for(int x: nums){
-            stack.push(x);
+        int [] nums = {13, 10, 23, 61};
+        for (int num: nums){
+            stack.push(num);
         }
 
-        System.out.println("--- After Popping ---");
-        while(stack.top >= 0){
-            stack.pop();
-        }
+        System.out.println("-- Stack B4 popping --");
+        stack.traverse();
+
+        System.out.print("\nTop on stack: " + stack.pop());
+
+        System.out.println("\n-- Stack after popping --");
+        stack.traverse();
 
     }
 }

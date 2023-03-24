@@ -1,20 +1,36 @@
 package Stacks;
 
 public class Stack {
-    int [] items = new int[5];
-    int top = -1;
+    Node head;
 
-    public void push(int data){
-        top += 1;
-        items[top] = data;
+    // method for inserting data to stack
+    public void push (int data){
+        Node node = new Node();
+        node.data = data;
+        node.next = head;
+        head = node;
     }
 
-    public void pop(){
-        if(top < 0){
-            System.out.print("Stack is Empty");
+    // method for removing top element from stack
+    public int pop (){
+        if (head != null){
+            Node current = head;
+            head = head.next;
+            return current.data;
         }
-        System.out.print(items[top] + " ");
-        top -= 1;
+        else {
+            System.out.print("List is empty.");
+        }
+        return 0;
     }
 
+    // method for traversing the stack
+    public void traverse (){
+        Node current = head;
+
+        while (current != null){
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+    }
 }
